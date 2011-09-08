@@ -8,9 +8,9 @@ pom.xmlに追記する設定
 
     <repositories>
       <repository>
-        <id>troter.jp/release</id>
-        <name>TROTER.JP Release Maven2 Repository</name>
-        <url>http://troter.jp/maven2/release</url>
+        <id>troter.jp snapshot</id>
+        <name>TROTER.JP Snapshot Maven2 Repository</name>
+        <url>http://troter.jp/maven2/snapshot</url>
       </repository>
     </repositories>
 
