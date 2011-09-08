@@ -1,0 +1,8 @@
+syntax: regexp
+.metadata
+.classpath
+.project
+.settings/
+data/
+lib/
+target/
