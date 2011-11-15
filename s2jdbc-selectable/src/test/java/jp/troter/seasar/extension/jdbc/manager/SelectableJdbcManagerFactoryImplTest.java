@@ -18,6 +18,9 @@ package jp.troter.seasar.extension.jdbc.manager;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,15 +53,26 @@ public class SelectableJdbcManagerFactoryImplTest {
     public void add$remove$list() {
         assertThat(i.getDefaultJdbcManagerName(), is("default"));
 
+        Set<String> names = null;
+
         i.addSelectableJdbcManagerName("node1");
         i.addSelectableJdbcManagerName("node2");
         i.addSelectableJdbcManagerName("node3");
+
+        names = new HashSet<String>(i.getSelectableJdbcManagerNames());
         assertThat(i.getSelectableJdbcManagerNames().size(), is(4));
-        assertThat(i.getSelectableJdbcManagerNames(), hasItems("node1", "node2", "node3", "default"));
+        assertTrue(names.contains("node1"));
+        assertTrue(names.contains("node2"));
+        assertTrue(names.contains("node3"));
+        assertTrue(names.contains("default"));
 
         i.removeSelectableJdbcManagerName("node2");
+
+        names = new HashSet<String>(i.getSelectableJdbcManagerNames());
         assertThat(i.getSelectableJdbcManagerNames().size(), is(3));
-        assertThat(i.getSelectableJdbcManagerNames(), hasItems("node1", "node3", "default"));
+        assertTrue(names.contains("node1"));
+        assertTrue(names.contains("node3"));
+        assertTrue(names.contains("default"));
     }
 
     @Test
