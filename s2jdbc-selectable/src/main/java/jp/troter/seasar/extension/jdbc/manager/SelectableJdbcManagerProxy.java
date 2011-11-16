@@ -64,7 +64,7 @@ public class SelectableJdbcManagerProxy implements JdbcManager, JdbcManagerImple
      * <code>SelectableJdbcManagerFactory</code>のコンポーネント名を設定します。
      * @param name
      */
-    public void setMasterSlaveJdbcManagerFactoryName(String name) {
+    public void setSelectableJdbcManagerFactoryName(String name) {
         this.selectableJdbcManagerFactoryName = name;
     }
 

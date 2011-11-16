@@ -37,8 +37,8 @@ public class SelectableJdbcManagerFactoryImplTest {
     @Test
     public void getJdbcManagerComponentName() {
         assertThat(i.getJdbcManagerComponentName(null), is("jdbcManager"));
-        assertThat(i.getJdbcManagerComponentName("master"), is("masterJdbcManager"));
-        assertThat(i.getJdbcManagerComponentName("slave1"), is("slave1JdbcManager"));
+        assertThat(i.getJdbcManagerComponentName("default"), is("defaultJdbcManager"));
+        assertThat(i.getJdbcManagerComponentName("node1"), is("node1JdbcManager"));
     }
 
     @Test
@@ -93,7 +93,7 @@ public class SelectableJdbcManagerFactoryImplTest {
         assertThat(i.getDefaultJdbcManagerName(), is("default"));
 
         i.setJdbcManagerName("default");
-        assertThat(i.getJdbcManagerName(), describedAs("defaultを指定した場合はmasterを利用", is("default")));
+        assertThat(i.getJdbcManagerName(), describedAs("defaultを指定した場合はdefaultを利用", is("default")));
         assertThat(i.getDefaultJdbcManagerName(), is("default"));
 
         i.setJdbcManagerName("node2");
